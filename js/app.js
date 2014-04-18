@@ -44,8 +44,8 @@ $("#no-of-years").on("input", function(){
 
 function updateCost() {
   total_cost = yearlyCost() + monthlyCost() + weeklyCost() + dailyCost() + hourlyCost();
-  total_cost = total_cost.toFixed(3);
-  $("#total-cost").text("£" + total_cost);
+  total_cost = total_cost.toFixed(2);
+  $("#total-cost").text("$" + total_cost);
 }
 
 function yearlyCost() {
@@ -93,11 +93,39 @@ function createPlansFromJSON(file_path) {
   });
 }
 
+function createUI() {
+  $(pricingPlans).each(function(index){
+    var planContainer = $("<div class='price-plan clearfix'></div>");
+    planContainer.data("plan-name", index);
+    
+    $(planContainer).append($("<p class='plan-rate'></p>").text("$" + this.hourly_rate + "/hr"));
+
+    $(planContainer).append($("<p class='plan-heading'>Memory</p>"));
+    $(planContainer).append($("<p class='plan-entry'></p>").text(this.memory));
+
+    $(planContainer).append($("<p class='plan-heading'>Processor</p>"));
+    $(planContainer).append($("<p class='plan-entry'></p>").text(this.processor));
+
+    $(planContainer).append($("<p class='plan-heading'>Storage</p>"));
+    $(planContainer).append($("<p class='plan-entry'></p>").text(this.storage));
+
+    $(planContainer).append($("<p class='plan-heading'>Transfer</p>"));
+    $(planContainer).append($("<p class='plan-entry'></p>").text(this.transfer));
+
+    $("#select-plan").append(planContainer);
+  });
+
+  $("#select-plan").on("click", ".price-plan", function(){
+    currPricingPlan = pricingPlans[$(this).data("plan-name")];
+    updateCost();
+  });
+}
+
 function initialiseApp() {
+  createUI();
   currPricingPlan = pricingPlans[0];
   updateCost();
 }
 
 createPlansFromJSON("prices.json");
-
 

@@ -9,9 +9,9 @@
   <title>Digital Ocean Pricing Calculator</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+  <link href='http://fonts.googleapis.com/css?family=Muli:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -20,22 +20,30 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   <div class="main">
-    <h2>Total Cost</h2>
-    <p id="total-cost">£0</p>
-    <label for="no-of-years">Years</label>
-    <input value="0" type="text" id="no-of-years">
+    <header>
+      <h1>Digital Ocean Cost Calculator</h1>
+    </header>
+    <div class="total-cost-cont">
+      <p id="total-cost">$0</p>
+      <h2 class="total-cost-label">Total Cost</h2>
+    </div>
 
-    <label for="no-of-months">Months</label>
-    <input value="1" type="text" id="no-of-months">
+    <form class="time-form clearfix">
+      <label for="no-of-years">Years</label>
+      <label for="no-of-months">Months</label>
+      <label for="no-of-weeks">Weeks</label>
+      <label for="no-of-days">Days</label>
+      <label for="no-of-hours">Hours</label>
 
-    <label for="no-of-weeks">Weeks</label>
-    <input value="0" type="text" id="no-of-weeks">
+      <input value="0" type="text" id="no-of-years">
+      <input value="1" type="text" id="no-of-months">
+      <input value="0" type="text" id="no-of-weeks">
+      <input value="0" type="text" id="no-of-days">
+      <input value="0" type="text" id="no-of-hours">
+    </form>
 
-    <label for="no-of-days">Days</label>
-    <input value="0" type="text" id="no-of-days">
-
-    <label for="no-of-hours">Hours</label>
-    <input value="0" type="text" id="no-of-hours">
+    <form id="select-plan" class="clearfix">
+    </form>
   </div>
   
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

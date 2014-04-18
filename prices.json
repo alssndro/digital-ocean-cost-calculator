@@ -64,5 +64,6 @@
   "extra_bandwidth": {
     "rate": 0.02
   },
-  "currency": "USD"
+  "currency": "USD",
+  "last_updated": "April 2014"
 }
