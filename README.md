@@ -1,1 +1,1 @@
-# Digital Ocean Pricing Calculator
+# Digital Ocean Cost Calculator

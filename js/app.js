@@ -89,6 +89,7 @@ function createPlansFromJSON(file_path) {
       pricingPlans.push(new PricingPlan(plan_name, pricingPlan.rates.hourly, pricingPlan.rates.monthly, pricingPlan.specs.memory, pricingPlan.specs.processor, pricingPlan.specs.storage, pricingPlan.specs.transfer));
     });
 
+    $("#last-updated").text("Pricing correct as of " + plan_hash.last_updated);
     initialiseApp();
   });
 }
@@ -96,7 +97,7 @@ function createPlansFromJSON(file_path) {
 function createUI() {
   $(pricingPlans).each(function(index){
     var planContainer = $("<div class='price-plan clearfix'></div>");
-    planContainer.data("plan-name", index);
+    planContainer.data("plan-no", index);
     
     $(planContainer).append($("<p class='plan-rate'></p>").text("$" + this.hourly_rate + "/hr"));
 
@@ -116,9 +117,14 @@ function createUI() {
   });
 
   $("#select-plan").on("click", ".price-plan", function(){
-    currPricingPlan = pricingPlans[$(this).data("plan-name")];
+    currPricingPlan = pricingPlans[$(this).data("plan-no")];
+    $(".plan-rate").removeClass("selected");
+    $(this).find(".plan-rate").addClass("selected");
     updateCost();
   });
+
+  // Make sure the UI is in sync, since the default selected plan is the first one
+  $(".plan-rate").first().addClass("selected");
 }
 
 function initialiseApp() {

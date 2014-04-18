@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Digital Ocean Pricing Calculator</title>
+  <title>DigitalOcean Cost Calculator</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
@@ -21,7 +21,7 @@
   <![endif]-->
   <div class="main">
     <header>
-      <h1>Digital Ocean Cost Calculator</h1>
+      <h1>DigitalOcean Cost Calculator</h1>
     </header>
     <div class="total-cost-cont">
       <p id="total-cost">$0</p>
@@ -35,17 +35,20 @@
       <label for="no-of-days">Days</label>
       <label for="no-of-hours">Hours</label>
 
-      <input value="0" type="text" id="no-of-years">
-      <input value="1" type="text" id="no-of-months">
-      <input value="0" type="text" id="no-of-weeks">
-      <input value="0" type="text" id="no-of-days">
-      <input value="0" type="text" id="no-of-hours">
+      <input value="0" type="text" id="no-of-years" placeholder="0">
+      <input value="1" type="text" id="no-of-months" placeholder="0">
+      <input value="0" type="text" id="no-of-weeks" placeholder="0">
+      <input value="0" type="text" id="no-of-days" placeholder="0">
+      <input value="0" type="text" id="no-of-hours" placeholder="0">
     </form>
-
+    <p>Select a plan below:</p>
     <form id="select-plan" class="clearfix">
     </form>
   </div>
-  
+  <footer>
+    <p id="last-updated"></p>
+    <p>View on <a href="https://github.com/alessndro/digital-ocean-cost-calculator">Github</a></p>
+  </footer>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
   <script src="js/app.js"></script>
