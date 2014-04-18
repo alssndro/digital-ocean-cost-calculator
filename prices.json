@@ -1,0 +1,68 @@
+{
+  "plans": {
+    "S": {
+      "rates": {
+        "hourly": 0.007,
+        "monthly": 5
+      },
+      "specs": {
+        "memory": "512MB",
+        "processor": "1 Core",
+        "storage": "20GB SSD",
+        "transfer": "1TB"
+      }
+    },
+    "M": {
+      "rates": {
+        "hourly": 0.015,
+        "monthly": 10
+      },
+      "specs": {
+        "memory": "1GB",
+        "processor": "1 Core",
+        "storage": "30GB SSD",
+        "transfer": "2TB"
+      }
+    },
+    "L": {
+      "rates": {
+        "hourly": 0.03,
+        "monthly": 20
+      },
+      "specs": {
+        "memory": "2GB",
+        "processor": "2 Core",
+        "storage": "40GB SSD",
+        "transfer": "3TB"
+      }
+    },
+    "XL": {
+      "rates": {
+        "hourly": 0.06,
+        "monthly": 40
+      },
+      "specs": {
+        "memory": "4GB",
+        "processor": "2 Core",
+        "storage": "60GB SSD",
+        "transfer": "5TB"
+      }
+    },
+    "XXL": {
+      "rates": {
+        "hourly": 0.119,
+        "monthly": 80
+      },
+      "specs": {
+        "memory": "8GB",
+        "processor": "4 Core",
+        "storage": "80GB SSD",
+        "transfer": "5TB"
+      }
+    }
+  },
+  "extra_bandwidth": {
+    "rate": 0.02
+  },
+  "currency": "USD"
+}
