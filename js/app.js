@@ -1,12 +1,9 @@
-// Need to initialise these
 var years = 0;
 var months = 1;
 var weeks = 0;
 var days = 0;
 var hours = 0;
 
-var hourly_rate = 0.007;
-var monthly_rate = 5;
 var total_cost = 0;
 
 var currPricingPlan;
@@ -104,7 +101,7 @@ function createUI() {
     $(planContainer).append($("<p class='plan-heading'>Memory</p>"));
     $(planContainer).append($("<p class='plan-entry'></p>").text(this.memory));
 
-    $(planContainer).append($("<p class='plan-heading'>Processor</p>"));
+    $(planContainer).append($("<p class='plan-heading'>Processors</p>"));
     $(planContainer).append($("<p class='plan-entry'></p>").text(this.processor));
 
     $(planContainer).append($("<p class='plan-heading'>Storage</p>"));
@@ -134,4 +131,3 @@ function initialiseApp() {
 }
 
 createPlansFromJSON("prices.json");
-

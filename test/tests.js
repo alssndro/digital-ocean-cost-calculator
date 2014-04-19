@@ -27,7 +27,6 @@ test("Total Cost", function() {
 
 // Support method for easier testing
 function setTimes(newHours, newDays, newWeeks, newMonths, newYears) {
-
   hours = newHours;
   days = newDays;
   weeks = newWeeks;
