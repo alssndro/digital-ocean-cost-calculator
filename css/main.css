@@ -278,6 +278,11 @@ input[type=text] + input[type=text], .price-plan + .price-plan {
   transition: background-image ease-in 0.1s;
 }
 
+#change-rate-period {
+  font-size:.888888889em;
+  line-height: 1.6875;
+}
+
 footer {
   font-size: 0.833333333em;
   text-align: center;

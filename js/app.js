@@ -53,16 +53,28 @@ function monthlyCost() {
   return currPricingPlan.monthly_rate * months;
 }
 
+// Calculating the cost this way improves accuracy if user uses more weeks
+// than necessary. e.g. inputs 6 weeks instead of 2 months and 2 weeks.
+// Necessary because of how DigitalOcean applies hourly or monthly rates
+// see https://www.digitalocean.com/pricing/ for more info
 function weeklyCost() {
-  return currPricingPlan.hourly_rate * 24 * 7 * weeks;
+  var weekly_cost = currPricingPlan.monthly_rate * Math.floor(weeks / 4);
+  weekly_cost += currPricingPlan.hourly_rate * (weeks % 4) * 7 * 24
+  return weekly_cost;
 }
 
+// Similar to weeklyCost(), more accurate in situations where user inputs
+// days greater than necessary. e.g. 42 days instead of 1 month 2 weeks
 function dailyCost() {
-  return currPricingPlan.hourly_rate * 24 * days;
+  var daily_cost = currPricingPlan.monthly_rate * Math.floor(days / 28);
+  daily_cost += currPricingPlan.hourly_rate * (days % 28) * 24;
+  return daily_cost;
 }
 
 function hourlyCost() {
-  return currPricingPlan.hourly_rate * hours;
+  var hourly_cost = currPricingPlan.monthly_rate * Math.floor(hours / 672);
+  hourly_cost += currPricingPlan.hourly_rate * (hours % 672);
+  return hourly_cost;
 }
 
 // Represents a pricing plan
@@ -86,7 +98,7 @@ function createPlansFromJSON(file_path) {
       pricingPlans.push(new PricingPlan(plan_name, pricingPlan.rates.hourly, pricingPlan.rates.monthly, pricingPlan.specs.memory, pricingPlan.specs.processor, pricingPlan.specs.storage, pricingPlan.specs.transfer));
     });
 
-    $("#last-updated").text("Pricing correct as of " + plan_hash.last_updated);
+    $("#last-updated").html("<a href='https://www.digitalocean.com/pricing/'>Pricing</a> correct as of " + plan_hash.last_updated);
     initialiseApp();
   });
 }
@@ -124,10 +136,25 @@ function createUI() {
   $(".plan-rate").first().addClass("selected");
 }
 
+$("#change-rate-period").on("click", function(e){
+  e.preventDefault();
+  if ($(this).text() === "Display rates monthly?") {
+    $(".plan-rate").each(function(index){
+      $(this).text("$" + pricingPlans[index].monthly_rate + "/mo")
+    });
+    $(this).text("Display rates hourly?");  
+  } else {
+    $(".plan-rate").each(function(index){
+      $(this).text("$" + pricingPlans[index].hourly_rate + "/hr")
+    });
+    $(this).text("Display rates monthly?");
+  }
+});
+
 function initialiseApp() {
   createUI();
   currPricingPlan = pricingPlans[0];
   updateCost();
 }
 
-createPlansFromJSON("prices.json");
+createPlansFromJSON("/prices.json");

@@ -1,10 +1,10 @@
 // Assumes using 'S' rate of 0.007/hr or 5/month
 test("Total Cost", function() {
   setTimes(1, 0, 0, 0, 0); // 1 hour
-  equal(total_cost, 0.007);
+  equal(total_cost, 0.01);
 
   setTimes(0, 0, 3, 0, 0); // 3 weeks
-  equal(total_cost, 3.528);
+  equal(total_cost, 3.53);
 
   setTimes(0, 0, 0, 1, 0); // 1 month
   equal(total_cost, 5);
@@ -19,10 +19,16 @@ test("Total Cost", function() {
   equal(total_cost, 50.07);
 
   setTimes(0, 0, 10, 10, 0); // 10 weeks, 10 months
-  equal(total_cost, 61.76);
+  equal(total_cost, 62.35);
 
   setTimes(10, 10, 10, 10, 10); // 10 everything
-  equal(total_cost, 663.51);
+  equal(total_cost, 664.10);
+
+  setTimes(0, 30, 0, 0, 0); // 30 days
+  equal(total_cost, 5.34);
+
+  setTimes(672, 0, 0, 0, 0); // 30 days
+  equal(total_cost, 5.00);
 });
 
 // Support method for easier testing
