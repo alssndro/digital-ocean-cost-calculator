@@ -157,4 +157,4 @@ function initialiseApp() {
   updateCost();
 }
 
-createPlansFromJSON("/prices.json");
+createPlansFromJSON("prices.json");

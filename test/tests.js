@@ -1,3 +1,7 @@
+// Need to override this method call in app.js since the file path will be incorrect
+// (filepaths are relative to the displayed page, not the location of the JS file)
+createPlansFromJSON("../prices.json");
+
 // Assumes using 'S' rate of 0.007/hr or 5/month
 test("Total Cost", function() {
   setTimes(1, 0, 0, 0, 0); // 1 hour
