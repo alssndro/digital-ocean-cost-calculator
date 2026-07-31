@@ -3,19 +3,10 @@
     "S": {
       "rates": {
         "hourly": 0.007,
-        "monthly": 5
-      },
+        "monthly": 5 },
       "specs": {
         "memory": "512MB",
-        "processor": "1 Core",
-        "storage": "20GB SSD",
-        "transfer": "1TB"
-      }
-    },
-    "M": {
-      "rates": {
-        "hourly": 0.015,
-        "monthly": 10
+        "processor":
       },
       "specs": {
         "memory": "1GB",
