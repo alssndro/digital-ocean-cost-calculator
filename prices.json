@@ -1,3 +1,38 @@
+{
+  "plans": {
+    "S": {
+      "rates": {
+        "hourly": 0.007,
+        "monthly": 5 },
+      "specs": {
+        "memory": "512MB",
+        "processor":
+      },
+      "specs": {
+        "memory": "1GB",
+        "processor": "1 Core",
+        "storage": "30GB SSD",
+        "transfer": "2TB"
+      }
+    },
+    "L": {
+      "rates": {
+        "hourly": 0.03,
+        "monthly": 20
+      },
+      "specs": {
+        "memory": "2GB",
+        "processor": "2 Core",
+        "storage": "40GB SSD",
+        "transfer": "3TB"
+      }
+    },
+    "XL": {
+      "rates": {
+        "hourly": 0.06,
+        "monthly": 40
+      },
+      "specs": {
         "memory": "4GB",
         "processor": "2 Core",
         "storage": "60GB SSD",
